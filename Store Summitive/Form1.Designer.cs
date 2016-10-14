@@ -241,27 +241,24 @@
             this.totalresLabel.AutoSize = true;
             this.totalresLabel.Location = new System.Drawing.Point(156, 245);
             this.totalresLabel.Name = "totalresLabel";
-            this.totalresLabel.Size = new System.Drawing.Size(41, 13);
+            this.totalresLabel.Size = new System.Drawing.Size(0, 13);
             this.totalresLabel.TabIndex = 27;
-            this.totalresLabel.Text = "label11";
             // 
             // taxresLabel
             // 
             this.taxresLabel.AutoSize = true;
             this.taxresLabel.Location = new System.Drawing.Point(156, 220);
             this.taxresLabel.Name = "taxresLabel";
-            this.taxresLabel.Size = new System.Drawing.Size(41, 13);
+            this.taxresLabel.Size = new System.Drawing.Size(0, 13);
             this.taxresLabel.TabIndex = 28;
-            this.taxresLabel.Text = "label14";
             // 
             // subresLabel
             // 
             this.subresLabel.AutoSize = true;
             this.subresLabel.Location = new System.Drawing.Point(156, 196);
             this.subresLabel.Name = "subresLabel";
-            this.subresLabel.Size = new System.Drawing.Size(41, 13);
+            this.subresLabel.Size = new System.Drawing.Size(0, 13);
             this.subresLabel.TabIndex = 29;
-            this.subresLabel.Text = "label15";
             // 
             // changeresLabel
             // 

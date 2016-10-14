@@ -69,37 +69,58 @@ namespace Store_Summitive
         private void changeButton_Click(object sender, EventArgs e)
         {
             // change  
-            tendered = Convert.ToDouble(tenderedText.Text);
-            double change = tendered - totalPrice;
-            changeresLabel.Text = change.ToString("C");
-
+            try
+            {
+                tendered = Convert.ToDouble(tenderedText.Text);
+                double change = tendered - totalPrice;
+                changeresLabel.Text = change.ToString("C");
+            }
+            catch
+            {
+                Graphics formgraphics = this.CreateGraphics();
+                SolidBrush textBrush = new SolidBrush(Color.Black);
+                Font receiptFont = new Font("Arial", 7, FontStyle.Bold);
+                formgraphics.DrawString("Must be a interger in textbox", receiptFont, textBrush, 305, 75);
+            }
 
         }
 
         private void receiptButton_Click(object sender, EventArgs e)
         {
             SoundPlayer soundregister = new SoundPlayer(Properties.Resources.register);
-            
-
-            taco = Convert.ToInt32(tacoText.Text);
-            quesadilla = Convert.ToInt32(lambText.Text);
-            burger = Convert.ToInt32(turkeyText.Text);
-            milk = Convert.ToInt32(milkText.Text);
-            pop = Convert.ToInt32(popText.Text);
-
             Graphics formgraphics = this.CreateGraphics();
             SolidBrush receiptBrush = new SolidBrush(Color.White);
             SolidBrush textBrush = new SolidBrush(Color.Black);
             Font receiptFont = new Font("Arial", 7, FontStyle.Bold);
             formgraphics.FillRectangle(receiptBrush, 295, 10, 240, 365);
 
-            formgraphics.DrawString("INDIAN GUYS BURGERS AND TACOS CO-OP", receiptFont,textBrush ,305, 15);
-            formgraphics.DrawString("Tacos x" + taco, receiptFont, textBrush, 305, 25);
-            formgraphics.DrawString("Quesadillas x"+  quesadilla, receiptFont, textBrush, 305, 35);
-            formgraphics.DrawString("Burgers x" + burger, receiptFont, textBrush, 305, 45);
-            formgraphics.DrawString("Milk x"+ milk, receiptFont, textBrush, 305, 55);
-            formgraphics.DrawString("Pop x"+ pop, receiptFont, textBrush, 305, 65);
-            soundregister.Play();
+            try
+            {
+                taco = Convert.ToInt32(tacoText.Text);
+                quesadilla = Convert.ToInt32(lambText.Text);
+                burger = Convert.ToInt32(turkeyText.Text);
+                milk = Convert.ToInt32(milkText.Text);
+                pop = Convert.ToInt32(popText.Text);
+
+                formgraphics.DrawString("INDIAN GUYS BURGERS AND TACOS CO-OP", receiptFont, textBrush, 305, 15);
+                formgraphics.DrawString("Tacos x" + taco, receiptFont, textBrush, 305, 25);
+                formgraphics.DrawString("Quesadillas x" + quesadilla, receiptFont, textBrush, 305, 35);
+                formgraphics.DrawString("Burgers x" + burger, receiptFont, textBrush, 305, 45);
+                formgraphics.DrawString("Milk x" + milk, receiptFont, textBrush, 305, 55);
+                formgraphics.DrawString("Pop x" + pop, receiptFont, textBrush, 305, 65);
+                formgraphics.DrawString("Subtotal = " + subresLabel, receiptFont, textBrush, 305, 75);
+                formgraphics.DrawString("Tax = " + taxresLabel, receiptFont, textBrush, 305, 85);
+                formgraphics.DrawString("Total = " + totalresLabel, receiptFont, textBrush, 305, 95);
+                formgraphics.DrawString("Tendered= " + tenderedText, receiptFont, textBrush, 305, 105);
+                formgraphics.DrawString("Change = " + changeresLabel, receiptFont, textBrush, 305, 115);
+                soundregister.Play();
+            }
+
+            catch
+            {
+             formgraphics.DrawString("Please enter values before printing", 
+                 receiptFont, textBrush, 305, 75);
+            }
 
 
 
@@ -111,6 +132,14 @@ namespace Store_Summitive
             totalresLabel.Text = "";
             taxresLabel.Text = "";
             changeresLabel.Text = "";
+            tacoText.Text = "";
+            lambText.Text = "";
+            turkeyText.Text = "";
+            milkText.Text = "";
+            popText.Text = "";
+            tenderedText.Text = ""; 
+
+           
 
 
         }
