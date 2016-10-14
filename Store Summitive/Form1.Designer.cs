@@ -265,9 +265,8 @@
             this.changeresLabel.AutoSize = true;
             this.changeresLabel.Location = new System.Drawing.Point(159, 331);
             this.changeresLabel.Name = "changeresLabel";
-            this.changeresLabel.Size = new System.Drawing.Size(41, 13);
+            this.changeresLabel.Size = new System.Drawing.Size(0, 13);
             this.changeresLabel.TabIndex = 30;
-            this.changeresLabel.Text = "label16";
             // 
             // orderButton
             // 

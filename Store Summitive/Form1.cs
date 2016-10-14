@@ -30,7 +30,11 @@ namespace Store_Summitive
         {
             InitializeComponent();
         }
+        // Store Summitive, a cash register
+        // finished 2016/10/14
+        // Cameron Cardiff 
 
+            // calculates the totals 
         private void totalButton_Click(object sender, EventArgs e)
         {
             Graphics formgraphics = this.CreateGraphics();
@@ -60,12 +64,13 @@ namespace Store_Summitive
 
             catch
             {
-                formgraphics.DrawString("use numbers only and enter 0 if customer doesn't order",
-                    receiptFont, textBrush, 305, 15);
+                formgraphics.DrawString("use numbers only and enter 0 ",
+                    receiptFont, textBrush, 295, 15);
+                formgraphics.DrawString("if customer doesn't order", receiptFont, textBrush, 295, 25);
             }
             
         }
-
+        //calculates the change
         private void changeButton_Click(object sender, EventArgs e)
         {
             // change  
@@ -84,7 +89,7 @@ namespace Store_Summitive
             }
 
         }
-
+        // creates the reciept 
         private void receiptButton_Click(object sender, EventArgs e)
         {
             SoundPlayer soundregister = new SoundPlayer(Properties.Resources.register);
@@ -103,16 +108,16 @@ namespace Store_Summitive
                 pop = Convert.ToInt32(popText.Text);
 
                 formgraphics.DrawString("INDIAN GUYS BURGERS AND TACOS CO-OP", receiptFont, textBrush, 305, 15);
-                formgraphics.DrawString("Tacos x" + taco, receiptFont, textBrush, 305, 25);
-                formgraphics.DrawString("Quesadillas x" + quesadilla, receiptFont, textBrush, 305, 35);
-                formgraphics.DrawString("Burgers x" + burger, receiptFont, textBrush, 305, 45);
-                formgraphics.DrawString("Milk x" + milk, receiptFont, textBrush, 305, 55);
-                formgraphics.DrawString("Pop x" + pop, receiptFont, textBrush, 305, 65);
-                formgraphics.DrawString("Subtotal = " + subresLabel, receiptFont, textBrush, 305, 75);
-                formgraphics.DrawString("Tax = " + taxresLabel, receiptFont, textBrush, 305, 85);
-                formgraphics.DrawString("Total = " + totalresLabel, receiptFont, textBrush, 305, 95);
-                formgraphics.DrawString("Tendered= " + tenderedText, receiptFont, textBrush, 305, 105);
-                formgraphics.DrawString("Change = " + changeresLabel, receiptFont, textBrush, 305, 115);
+                formgraphics.DrawString("Tacos x" + taco, receiptFont, textBrush, 305, 35);
+                formgraphics.DrawString("Quesadillas x" + quesadilla, receiptFont, textBrush, 305, 55);
+                formgraphics.DrawString("Burgers x" + burger, receiptFont, textBrush, 305, 75);
+                formgraphics.DrawString("Milk x" + milk, receiptFont, textBrush, 305, 95);
+                formgraphics.DrawString("Pop x" + pop, receiptFont, textBrush, 305, 115);
+                formgraphics.DrawString("Subtotal = " + subresLabel.Text, receiptFont, textBrush, 305, 135);
+                formgraphics.DrawString("Tax = " + taxresLabel.Text, receiptFont, textBrush, 305, 155);
+                formgraphics.DrawString("Total = " + totalresLabel.Text, receiptFont, textBrush, 305, 175);
+                formgraphics.DrawString("Tendered= " + tenderedText.Text, receiptFont, textBrush, 305, 195);
+                formgraphics.DrawString("Change = " + changeresLabel.Text, receiptFont, textBrush, 305, 215);
                 soundregister.Play();
             }
 
@@ -125,7 +130,7 @@ namespace Store_Summitive
 
 
         }
-
+        // resets the interface for a new order
         private void orderButton_Click(object sender, EventArgs e)
         {
             subresLabel.Text = "";
@@ -137,11 +142,10 @@ namespace Store_Summitive
             turkeyText.Text = "";
             milkText.Text = "";
             popText.Text = "";
-            tenderedText.Text = ""; 
+            tenderedText.Text = "";
 
-           
-
-
+            Graphics formgraphics = this.CreateGraphics();
+            formgraphics.Clear(Color.Silver);
         }
     }
 }
