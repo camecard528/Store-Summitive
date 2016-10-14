@@ -68,7 +68,7 @@ namespace Store_Summitive
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            // change 
+            // change  
             tendered = Convert.ToDouble(tenderedText.Text);
             double change = tendered - totalPrice;
             changeresLabel.Text = change.ToString("C");
